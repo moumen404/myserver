@@ -1,4 +1,4 @@
 Flask
 Werkzeug
-Hashlib
-Apscheduler
+hashlib
+apscheduler
