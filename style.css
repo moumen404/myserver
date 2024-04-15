@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #1a73e8;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo i {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logout-link {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  
+  .content {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+  
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-menu li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-menu li a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar-menu li a i {
+    margin-right: 10px;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .search-bar {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .file-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .file-list th,
+  .file-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .file-list th {
+    background-color: #f1f1f1;
+  }
+  
+  .download-link,
+  .remove-button {
+    color: #333;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .remove-form {
+    display: inline;
+  }
+  
+  .upload-form {
+    margin-top: 20px;
+  }
+  
+  .upload-form input[type="file"] {
+    margin-right: 10px;
+  }
+  
+  .actions {
+    margin-top: 20px;
+  }
+  
+  .actions button {
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }

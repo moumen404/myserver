@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Home Server - Trash</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-cloud"></i>
+            <span>Home Server</span>
+        </div>
+        <div class="user-info">
+            <span>You're Not {{ session['user'] }}?</span>
+            <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-folder"></i> My Files</a></li>
+                <li><a href="#"><i class="fas fa-share-alt"></i> Shared with me</a></li>
+                <li><a href="#"><i class="fas fa-clock"></i> Recent</a></li>
+                <li><a href="#"><i class="fas fa-star"></i> Starred</a></li>
+                <li><a href="#"><i class="fas fa-trash-alt"></i> Trash</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="search-bar">
+                <form action="{{ url_for('search') }}" method="POST">
+                    <input type="text" name="search" placeholder="Search...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <div class="file-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Owner</th>
+                            <th>Last Modified</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for file in files %}
+                        <tr>
+                            <td>{{ file }}</td>
+                            <td>{{ session['user'] }}</td>
+                            <td><!-- Add last modified date here --></td>
+                            <td>
+                                <a href="{{ url_for('restore_file', filename=file) }}" class="restore-link"><i
+                                        class="fas fa-undo"></i> Restore</a>
+                                <form action="{{ url_for('delete_permanently', filename=file) }}" method="post"
+                                    class="delete-form">
+                                    <button type="submit" class="delete-button"><i class="fas fa-trash-alt"></i>
+                                        Delete Permanently</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

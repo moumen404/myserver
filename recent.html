@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Home Server - Recent Files</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-cloud"></i>
+            <span>Homae Server</span>
+        </div>
+        <div class="user-info">
+            <span>Welcome, {{ session['user'] }}</span>
+            <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="{{ url_for('index') }}"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-folder"></i> My Files</a></li>
+                <li><a href="#"><i class="fas fa-share-alt"></i> Shared with me</a></li>
+                <li><a href="{{ url_for('recent') }}"><i class="fas fa-clock"></i> Recent</a></li>
+                <li><a href="#"><i class="fas fa-star"></i> Starred</a></li>
+                <li><a href="#"><i class="fas fa-trash-alt"></i> Trash</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h1>Recent Files</h1>
+
+            <div class="file-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Last Accessed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for file_info in recent_files %}
+                        <tr>
+                            <td>{{ file_info.filename }}</td>
+                            <td>{{ file_info.last_accessed }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

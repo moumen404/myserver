@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Starred Files</title>
+</head>
+<body>
+    <h1>Starred Files</h1>
+    <ul>
+        {% for file in starred_files %}
+        <li>
+            {{ file.name }}
+            <button class="toggle-star" data-filename="{{ file.name }}">Starred</button>
+        </li>
+        {% endfor %}
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.toggle-star').click(function() {
+                var filename = $(this).data('filename');
+                $.ajax({
+                    url: '/toggle_star/' + filename,
+                    type: 'POST',
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            console.error('Failed to toggle star');
+                        }
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
