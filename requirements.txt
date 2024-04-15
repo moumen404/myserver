@@ -1,5 +1,4 @@
 Flask
 Werkzeug
-Json
 Hashlib
 Apscheduler
